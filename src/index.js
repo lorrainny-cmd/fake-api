@@ -11,8 +11,8 @@ const { Header, Content, Footer, Sider } = Layout;
 function active() {
   axios.get(`https://my-json-server.typicode.com/tractian/fake-api/assets`)
     .then(res => {
-      const actives = res.data;
-      return console.log(actives)
+      const active = res.data;
+      return console.log(active)
 
     })
 }
@@ -74,6 +74,7 @@ ReactDOM.render(
           >
           </ButtonAntd>
         </Menu.Item>
+
         <Menu.Item key="3" icon={<UploadOutlined />}>
           <ButtonAntd
             title=''
@@ -83,6 +84,7 @@ ReactDOM.render(
           >
           </ButtonAntd>
         </Menu.Item>
+
         <Menu.Item key="4" icon={<UserOutlined />}>
           <ButtonAntd
             title=''
@@ -92,6 +94,7 @@ ReactDOM.render(
           >
           </ButtonAntd>
         </Menu.Item>
+
       </Menu>
     </Sider>
     <Layout>
