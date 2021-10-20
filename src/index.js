@@ -2,11 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
-import { Layout, Menu } from 'antd';
+import axios from 'axios';
+import { Layout, Menu, Button as ButtonAntd } from 'antd';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 
+function active() {
+  axios.get(`https://my-json-server.typicode.com/tractian/fake-api/assets`)
+    .then(res => {
+      const actives = res.data;
+      return console.log(actives)
+
+    })
+}
+function companies() {
+  axios.get(`https://my-json-server.typicode.com/tractian/fake-api/companies`)
+    .then(res => {
+      const companies = res.data;
+      return console.log(companies)
+
+    })
+}
+function units() {
+  axios.get(`https://my-json-server.typicode.com/tractian/fake-api/units`)
+    .then(res => {
+      const units = res.data;
+      return console.log(units)
+
+    })
+}
+function users() {
+  axios.get(`https://my-json-server.typicode.com/tractian/fake-api/users`)
+    .then(res => {
+      const users = res.data;
+      return console.log(users)
+
+    })
+}
 ReactDOM.render(
   <Layout>
     <Sider
@@ -21,17 +54,43 @@ ReactDOM.render(
     >
       <div className="logo" />
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+
         <Menu.Item key="1" icon={<UserOutlined />}>
-          nav 1
+          <ButtonAntd
+            title=''
+            size='small'
+            onClick={active()}
+            style={{ fontSize: "11px", width: "20px", height: "20px" }}
+          >
+          </ButtonAntd>
         </Menu.Item>
+
         <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-          nav 2
+          <ButtonAntd
+            title=''
+            size='small'
+            onClick={companies()}
+            style={{ fontSize: "11px", width: "20px", height: "20px" }}
+          >
+          </ButtonAntd>
         </Menu.Item>
         <Menu.Item key="3" icon={<UploadOutlined />}>
-          nav 3
+          <ButtonAntd
+            title=''
+            size='small'
+            onClick={units()}
+            style={{ fontSize: "11px", width: "20px", height: "20px" }}
+          >
+          </ButtonAntd>
         </Menu.Item>
         <Menu.Item key="4" icon={<UserOutlined />}>
-          nav 4
+          <ButtonAntd
+            title=''
+            size='small'
+            onClick={users()}
+            style={{ fontSize: "11px", width: "20px", height: "20px" }}
+          >
+          </ButtonAntd>
         </Menu.Item>
       </Menu>
     </Sider>
